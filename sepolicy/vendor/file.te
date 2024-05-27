@@ -22,3 +22,5 @@ type diag_device, data_file_type, file_type;
 
 # KProfiles
 type sysfs_kprofiles, sysfs_type, fs_type;
+
+type sysfs_torch, fs_type, sysfs_type;
