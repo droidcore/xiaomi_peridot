@@ -133,6 +133,10 @@ $(call soong_config_set,libcameraservice,ext_lib,//$(LOCAL_PATH):libcameraservic
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.context_hub.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/android.hardware.context_hub.xml
 
+# DSP
+PRODUCT_PACKAGES += \
+    DSPVolumeSynchronizer
+
 # Display
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.display.composer3-V1-ndk.vendor \
