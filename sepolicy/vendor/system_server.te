@@ -1,0 +1,27 @@
+binder_call(system_server, vendor_hal_displayfeature_xiaomi_default)
+hal_client_domain(system_server, hal_dms)
+allow platform_app hal_aidlbgservice_service:service_manager find;
+
+# Allow getattr on various proc files
+allow system_server { 
+  proc_uptime proc_diskstats proc_interrupts proc_cgroups 
+  proc_swaps proc_zoneinfo proc_buddyinfo proc_bootconfig 
+}:file getattr;
+
+allow system_server mediaserver_tmpfs:file write;
+allow system_server self:capability sys_module;
+
+# Suppress non-critical vendor file reads
+dontaudit system_server vendor_file:file read;
+dontaudit system_server hal_graphics_allocator_default_exec:file read;
+dontaudit system_server hal_graphics_composer_default_exec:file read;
+dontaudit system_server system_user_mode_emulation_prop:file read;
+
+# Proc
+allow system_server proc:file getattr;
+allow system_server proc_iomem:file getattr;
+allow system_server proc_kmsg:file getattr;
+allow system_server proc_modules:file getattr;
+allow system_server proc_kpageflags:file getattr;
+allow system_server proc_keys:file getattr;
+allow system_server proc_kpageflags:file getattr;
