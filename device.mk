@@ -26,6 +26,9 @@ $(call inherit-product, hardware/qcom-caf/common/common.mk)
 # Call the MiuiCamera setup
 $(call inherit-product-if-exists, device/xiaomi/peridot-miuicamera/device.mk)
 
+# Viper4AndroidFX
+$(call inherit-product, packages/apps/ViPER4AndroidFX/config.mk)
+
 # A/B
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
@@ -179,6 +182,9 @@ PRODUCT_COPY_FILES += \
 # GNSS
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.location.gps.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.location.gps.xml
+    
+# GameBar Performance Overlay
+$(call inherit-product, packages/apps/GameBar/gamebar.mk)    
 
 # HWUI
 TARGET_USES_VULKAN := true
@@ -526,3 +532,4 @@ PRODUCT_COPY_FILES += \
 
 # Vendor
 $(call inherit-product, vendor/xiaomi/peridot/peridot-vendor.mk)
+PRODUCT_DEFAULT_DEV_CERTIFICATE := vendor/lineage-priv/keys/releasekey

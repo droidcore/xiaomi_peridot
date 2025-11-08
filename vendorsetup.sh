@@ -1,68 +1,77 @@
 #!/bin/bash
 
-# Define colour codes
-RED="\033[0;31m"
-GREEN="\033[0;32m"
-YELLOW="\033[1;33m"
-BLUE="\033[0;34m"
-CYAN="\033[0;36m"
-NC="\033[0m" # No Color
+# Vendor (fresh clone)
+echo "Cloning vendor tree..."
+rm -rf vendor/xiaomi/peridot
+git clone -b lineage-23.0 https://github.com/Poco-F6-resources/proprietary_vendor_xiaomi_peridot.git vendor/xiaomi/peridot
 
-fatal() {
-    echo -e "${RED}[FATAL] $1${NC}"
-    return 1
-}
-
-info() {
-    echo -e "${CYAN}$1${NC}"
-}
-
-success() {
-    echo -e "${GREEN}$1${NC}"
-}
-
-warn() {
-    echo -e "${YELLOW}$1${NC}"
-}
-
-info "Cloning All resources"
-
-# Vendor
-info "Cloning vendor tree"
-git clone -b lineage-23.0 --depth 1 https://github.com/Poco-F6-resources/proprietary_vendor_xiaomi_peridot.git vendor/xiaomi/peridot || fatal "Vendor tree clone failed!"
-
-# Kernel sources
-info "Cloning Kernel sources"
-git clone -b Rd --depth 1 https://github.com/Poco-F6-resources/android_kernel_xiaomi_sm8635.git kernel/xiaomi/sm8635 || fatal "Kernel source clone failed!"
-
-warn "Cleaning kernel modules directory (if exists)"
+# Kernel source (fresh clone)
+echo "Cloning kernel source tree..."
+rm -rf kernel/xiaomi/sm8635
+git clone -b lineage-23.0 --depth 1 https://github.com/droidcore/android_kernel_xiaomi_sm8635.git kernel/xiaomi/sm8635
 rm -rf kernel/xiaomi/sm8635-modules
-info "Cloning kernel modules"
-git clone -b Rd https://github.com/Poco-F6-resources/android_kernel_xiaomi_sm8635-modules.git kernel/xiaomi/sm8635-modules || fatal "Kernel modules clone failed!"
+git clone -b lineage-23.0 --depth 1 https://github.com/droidcore/android_kernel_xiaomi_sm8635-modules.git kernel/xiaomi/sm8635-modules
 
-warn "Cleaning kernel devicetrees directory (if exists)"
 rm -rf kernel/xiaomi/sm8635-devicetrees
-info "Cloning kernel devicetrees"
-git clone -b Rd https://github.com/Poco-F6-resources/android_kernel_xiaomi_sm8635-devicetrees.git kernel/xiaomi/sm8635-devicetrees || fatal "Kernel devicetrees clone failed!"
+git clone -b lineage-23.0 --depth 1 https://github.com/peridot-dev/android_kernel_xiaomi_sm8635-devicetrees.git kernel/xiaomi/sm8635-devicetrees
 
-# Hardware xiaomi
-info "Cloning hardware xiaomi test branch"
-warn "Cleaning hardware/xiaomi directory (if exists)"
+# Hardware xiaomi (fresh clone)
+echo "Cloning hardware xiaomi source..."
 rm -rf hardware/xiaomi
-git clone -b test https://github.com/Poco-F6-resources/android_hardware_xiaomi.git hardware/xiaomi || fatal "Hardware xiaomi clone failed!"
+git clone -b lineage-23.0 https://github.com/lightbulb-box/hardware_xiaomi.git hardware/xiaomi
 
-# Dolby
-info "Cloning XiaomiDolby"
-git clone -b lineage-23.0 https://github.com/Poco-F6-resources/android_packages_apps_XiaomiDolby.git packages/apps/XiaomiDolby || fatal "XiaomiDolby clone failed!"
+# MiuiCamera device tree (fresh clone)
+echo "Cloning MiuiCamera device tree..."
+rm -rf device/xiaomi/peridot-miuicamera
+git clone https://github.com/F6-test/device_xiaomi_peridot-miuicamera.git device/xiaomi/peridot-miuicamera
 
-# Mi Cam
-info "Cloning Mi Cam"
-info "Cloning Miuicamera vendor"
-git clone -b aosp-15-qpr2 --depth 1 https://github.com/F6-test/vendor-xiaomi-peridot-miuicamera.git vendor/xiaomi/peridot-miuicamera || fatal "Vendor miuicamera clone failed!"
+# MiuiCamera vendor tree (fresh clone)
+echo "Cloning MiuiCamera vendor tree..."
+rm -rf vendor/xiaomi/peridot-miuicamera
+git clone https://github.com/F6-test/vendor-xiaomi-peridot-miuicamera.git vendor/xiaomi/peridot-miuicamera
 
-info "Cloning Miuicamera device"
-git clone -b aosp-15-qpr2 --depth 1 https://github.com/F6-test/device_xiaomi_peridot-miuicamera.git device/xiaomi/peridot-miuicamera || fatal "Device miuicamera clone failed!"
+# Xiaomi app (fresh clone)
+echo "Cloning xiaomipart device tree..."
+rm -rf packages/apps/XiaomiParts
 
-success "All resources cloned successfully!"
+# Packages Apps Settings
+echo "Cloning Custom Apps Settings tree..."
+rm -rf packages/apps/Settings
+git clone https://github.com/droidcore/packages_apps_Settings.git packages/apps/Settings
 
-return 0
+# Packages Apps XiaomiDolby
+echo "Cloning XiaomiDolby tree..."
+rm -rf packages/apps/XiaomiDolby
+git clone -b lineage-23.0 https://github.com/lightbulb-box/android_packages_apps_XiaomiDolby packages/apps/XiaomiDolby
+
+# system sepolicy 
+echo "Cloning Custom system sepolicy tree..."
+rm -rf system/sepolicy
+git clone https://github.com/droidcore/system_sepolicy.git system/sepolicy
+
+# Viper4Android 
+echo "Cloning Viper4Android tree..."
+rm -rf packages/apps/ViPER4AndroidFX
+git clone https://github.com/lightbulb-box/packages_apps_ViPER4AndroidFX.git packages/apps/ViPER4AndroidFX
+
+# Gamebar
+echo "Cloning Gamebar tree..."
+rm -rf packages/apps/GameBar
+git clone https://github.com/kenway214/packages_apps_GameBar.git packages/apps/GameBar
+
+# Refresh signing keys
+if [ -d vendor/lineage-priv/keys ]; then
+  echo "Removing existing signing keys..."
+  rm -rf vendor/lineage-priv/keys
+fi
+echo "Cloning fresh signing keys..."
+git clone https://github.com/droidcore/vendor_cherish-priv_keys-template.git -b master vendor/lineage-priv/keys
+
+# Always back to root at the end
+if command -v croot &>/dev/null; then
+  croot
+else
+  cd "$ANDROID_BUILD_TOP" || true
+fi
+
+echo "vendorsetup.sh execution complete."
