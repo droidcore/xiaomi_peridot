@@ -53,7 +53,7 @@ git clone https://github.com/lightbulb-box/packages_apps_ViPER4AndroidFX.git pac
 # Gamebar
 echo "Cloning Gamebar tree..."
 rm -rf packages/apps/GameBar
-git clone https://github.com/droidcore/packages_apps_GameBar.git.git packages/apps/GameBar
+git clone https://github.com/droidcore/packages_apps_GameBar.git packages/apps/GameBar
 
 # Refresh signing keys
 if [ -d vendor/lineage-priv/keys ]; then
