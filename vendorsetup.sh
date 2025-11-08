@@ -30,10 +30,6 @@ echo "Cloning MiuiCamera vendor tree..."
 rm -rf vendor/xiaomi/peridot-miuicamera
 git clone https://github.com/F6-test/vendor-xiaomi-peridot-miuicamera.git vendor/xiaomi/peridot-miuicamera
 
-# Xiaomi app (fresh clone)
-echo "Cloning xiaomipart device tree..."
-rm -rf packages/apps/XiaomiParts
-
 # Packages Apps Settings
 echo "Cloning Custom Apps Settings tree..."
 rm -rf packages/apps/Settings
@@ -57,7 +53,7 @@ git clone https://github.com/lightbulb-box/packages_apps_ViPER4AndroidFX.git pac
 # Gamebar
 echo "Cloning Gamebar tree..."
 rm -rf packages/apps/GameBar
-git clone https://github.com/kenway214/packages_apps_GameBar.git packages/apps/GameBar
+git clone https://github.com/droidcore/packages_apps_GameBar.git.git packages/apps/GameBar
 
 # Refresh signing keys
 if [ -d vendor/lineage-priv/keys ]; then
