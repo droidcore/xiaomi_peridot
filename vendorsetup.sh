@@ -18,7 +18,7 @@ git clone -b lineage-23.0 --depth 1 https://github.com/peridot-dev/android_kerne
 # Hardware xiaomi (fresh clone)
 echo "Cloning hardware xiaomi source..."
 rm -rf hardware/xiaomi
-git clone -b lineage-23.0 https://github.com/PeridotSupremacy/hardware_xiaomi.git hardware/xiaomi
+git clone -b lineage-23.0 https://github.com/droidcore/hardware_xiaomi.git hardware/xiaomi
 
 # MiuiCamera device tree (fresh clone)
 echo "Cloning MiuiCamera device tree..."
@@ -66,7 +66,7 @@ if [ -d vendor/lineage-priv/keys ]; then
   rm -rf vendor/lineage-priv/keys
 fi
 echo "Cloning fresh signing keys..."
-git clone https://github.com/droidcore/vendor_cherish-priv_keys-template.git -b master vendor/lineage-priv/keys
+git clone https://github.com/AbuRider/priv_keys.git -b main vendor/lineage-priv/keys
 
 # Always back to root at the end
 if command -v croot &>/dev/null; then
