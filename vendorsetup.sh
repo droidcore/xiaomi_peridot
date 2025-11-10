@@ -35,11 +35,6 @@ echo "Cloning Custom Apps Settings tree..."
 rm -rf packages/apps/Settings
 git clone https://github.com/droidcore/packages_apps_Settings.git packages/apps/Settings
 
-# Packages Apps XiaomiDolby
-echo "Cloning XiaomiDolby tree..."
-rm -rf packages/apps/XiaomiDolby
-git clone -b lineage-23.0 https://github.com/lightbulb-box/android_packages_apps_XiaomiDolby packages/apps/XiaomiDolby
-
 # system sepolicy 
 echo "Cloning Custom system sepolicy tree..."
 rm -rf system/sepolicy
@@ -66,7 +61,7 @@ if [ -d vendor/lineage-priv/keys ]; then
   rm -rf vendor/lineage-priv/keys
 fi
 echo "Cloning fresh signing keys..."
-git clone https://github.com/AbuRider/priv_keys.git -b main vendor/lineage-priv/keys
+git clone https://github.com/droidcore/priv-key.git -b main vendor/lineage-priv/keys
 
 # Always back to root at the end
 if command -v croot &>/dev/null; then
