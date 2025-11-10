@@ -58,4 +58,3 @@ kernel/net/ieee802154/ieee802154.ko
 kernel/net/ieee802154/ieee802154_socket.ko
 kernel/net/mac802154/mac802154.ko
 kernel/net/nfc/nfc.ko
-dcvs_boost.ko
