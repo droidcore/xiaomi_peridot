@@ -48,7 +48,7 @@ git clone https://github.com/droidcore/system_sepolicy.git system/sepolicy
 # Viper4Android 
 echo "Cloning Viper4Android tree..."
 rm -rf packages/apps/ViPER4AndroidFX
-git clone https://github.com/lightbulb-box/packages_apps_ViPER4AndroidFX.git packages/apps/ViPER4AndroidFX
+git clone https://github.com/TogoFire/packages_apps_ViPER4AndroidFX.git packages/apps/ViPER4AndroidFX
 
 # Gamebar
 echo "Cloning Gamebar tree..."
