@@ -169,6 +169,7 @@ vendor.display.scaling_source_opt_mode=4
 vendor.display.vds_allow_hwc=1
 vendor.gralloc.disable_ubwc=0
 vendor.gralloc.enable_logs=0
+dev.pm.dyn_samplingrate=1
 
 # Enable Vulkan for HWUI
 ro.hwui.use_vulkan=true
