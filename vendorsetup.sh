@@ -33,7 +33,7 @@ git clone https://github.com/F6-test/vendor-xiaomi-peridot-miuicamera.git vendor
 # system sepolicy 
 echo "Cloning Custom system sepolicy tree..."
 rm -rf system/sepolicy
-git clone https://github.com/droidcore/infinity_system_sepolicy.git system/sepolicy
+git clone https://github.com/droidcore/euclid_system_sepolicy.git system/sepolicy
 
 # Viper4Android 
 echo "Cloning Viper4Android tree..."
