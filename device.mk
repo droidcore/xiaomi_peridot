@@ -395,7 +395,7 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/qcom-caf/common/libqti-perfd-client \
     hardware/google/interfaces \
     hardware/google/pixel \
-    hardware/lineage/interfaces/power-libperfmgr \
+    hardware/euclid/interfaces/power-libperfmgr \
     vendor/qcom/opensource/usb/etc
 
 # Sensors
