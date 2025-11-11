@@ -20,6 +20,10 @@ echo "Cloning hardware xiaomi source..."
 rm -rf hardware/xiaomi
 git clone -b lineage-23.0 https://github.com/PeridotSupremacy/hardware_xiaomi.git hardware/xiaomi
 
+# Packages Apps XiaomiDolby
+echo "Cloning XiaomiDolby tree..."
+rm -rf packages/apps/XiaomiDolby
+
 # MiuiCamera device tree (fresh clone)
 echo "Cloning MiuiCamera device tree..."
 rm -rf device/xiaomi/peridot-miuicamera
