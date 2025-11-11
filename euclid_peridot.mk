@@ -9,12 +9,12 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit some common infinityOS stuff.
-$(call inherit-product, vendor/infinity/config/common_full_phone.mk)
+$(call inherit-product, vendor/euclid/config/common_full_phone.mk)
 
 # Inherit from peridot device
 $(call inherit-product, device/xiaomi/peridot/device.mk)
 
-# Lunaris
+# Euclid
 WITH_GMS := true
 TARGET_OPTIMIZED_DEXOPT := true
 TARGET_ENABLE_BLUR := true
@@ -24,24 +24,22 @@ TARGET_SUPPORTS_QUICK_TAP := true
 TARGET_FACE_UNLOCK_SUPPORTED := true
 TARGET_INCLUDE_ACCORD := false
 EXTRA_UDFPS_ICONS := true
-INFINITY_BUILD_TYPE := UNOFFICIAL
-INFINITY_MAINTAINER := BLU
 
 # Boost Framework
-INFINITY_CPU_SMALL_CORES := 0,1,2
-INFINITY_CPU_BIG_CORES := 3,4,5,6,7
-INFINITY_CPU_SYS_BG := 0-3
-INFINITY_CPU_BG := 0-2
-INFINITY_CPU_FG := 0-7
-INFINITY_CPU_LIMIT_BG := 0-2
-INFINITY_CPU_UNLIMIT_UI := 0-7
-INFINITY_CPU_LIMIT_UI := 0-5
-INFINITY_CPU_DISPLAY := 6-7
+EUCLID_CPU_SMALL_CORES := 0,1,2
+EUCLID_CPU_BIG_CORES := 3,4,5,6,7
+EUCLID_CPU_SYS_BG := 0-3
+EUCLID_CPU_BG := 0-2
+EUCLID_CPU_FG := 0-7
+EUCLID_CPU_LIMIT_BG := 0-2
+EUCLID_CPU_UNLIMIT_UI := 0-7
+EUCLID_CPU_LIMIT_UI := 0-5
+EUCLID_CPU_DISPLAY := 6-7
 GPU_FREQS_PATH := /sys/class/kgsl/kgsl-3d0/devfreq/available_frequencies
 GPU_MIN_FREQ_PATH := /sys/class/kgsl/kgsl-3d0/devfreq/min_freq
 
 # Device Flags
-PRODUCT_NAME := infinity_peridot
+PRODUCT_NAME := euclid_peridot
 PRODUCT_DEVICE := peridot
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_BRAND := POCO
