@@ -117,6 +117,7 @@ debug.hwui.skia_tracing_enabled=false
 debug.hwui.skia_use_perfetto_track_events=false
 debug.sf.enable_transaction_tracing=false
 debug.sf.frame_rate_multiple_threshold=120
+debug.sf.hwc.min.duration=8400000
 debug.sf.layer_caching_active_layer_timeout_ms=1000
 debug.sf.predict_hwc_composition_strategy=0
 debug.sf.treat_170m_as_sRGB=1
