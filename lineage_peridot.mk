@@ -36,7 +36,7 @@ PRODUCT_SYSTEM_NAME := peridot_global
 PRODUCT_SYSTEM_DEVICE := peridot
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    BuildFingerprint=POCO/peridot_global/peridot:15/AQ3A.240912.001/OS2.0.205.0.VNPMIXM:user/release-keys \   
+    BuildFingerprint=POCO/peridot_global/peridot:15/AQ3A.240912.001/OS2.0.206.0.VNPMIXM:user/release-keys \
     DeviceName=$(PRODUCT_SYSTEM_DEVICE) \
     DeviceProduct=$(PRODUCT_SYSTEM_NAME)
 
