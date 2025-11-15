@@ -30,11 +30,6 @@ echo "Cloning MiuiCamera vendor tree..."
 rm -rf vendor/xiaomi/peridot-miuicamera
 git clone https://github.com/F6-test/vendor-xiaomi-peridot-miuicamera.git vendor/xiaomi/peridot-miuicamera
 
-# system sepolicy 
-echo "Cloning Custom system sepolicy tree..."
-rm -rf system/sepolicy
-git clone https://github.com/droidcore/evo_system_sepolicy.git system/sepolicy
-
 # Viper4Android 
 echo "Cloning Viper4Android tree..."
 rm -rf packages/apps/ViPER4AndroidFX
