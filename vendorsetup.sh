@@ -25,11 +25,6 @@ echo "Cloning Custom system sepolicy tree..."
 rm -rf system/sepolicy
 git clone https://github.com/droidcore/mica_system_sepolicy.git system/sepolicy
 
-# Packages Apps dvce_vndr
-echo "Cloning Devicevndr tree..."
-rm -rf device/qcom/sepolicy_vndr/sm8650
-git clone https://github.com/droidcore/androids_device_qcom_sepolicy_vndr.git device/qcom/sepolicy_vndr/sm8650
-
 # MiuiCamera device tree (fresh clone)
 echo "Cloning MiuiCamera device tree..."
 rm -rf device/xiaomi/peridot-miuicamera
