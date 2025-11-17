@@ -20,10 +20,10 @@ echo "Cloning hardware xiaomi source..."
 rm -rf hardware/xiaomi
 git clone -b lineage-23.0 https://github.com/PeridotSupremacy/hardware_xiaomi.git hardware/xiaomi
 
-# Packages Apps XiaomiDolby
-echo "Cloning XiaomiDolby tree..."
-rm -rf device/qcom/sepolicy_vndr/sm8650
-git clone https://github.com/droidcore/androids_device_qcom_sepolicy_vndr.git device/qcom/sepolicy_vndr/sm8650
+# system sepolicy 
+echo "Cloning Custom system sepolicy tree..."
+rm -rf system/sepolicy
+git clone https://github.com/droidcore/mica_system_sepolicy.git system/sepolicy
 
 # MiuiCamera device tree (fresh clone)
 echo "Cloning MiuiCamera device tree..."
