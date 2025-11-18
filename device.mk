@@ -271,6 +271,10 @@ PRODUCT_COPY_FILES += \
 
 $(call soong_config_set,libinit,vendor_init_lib,//$(LOCAL_PATH):init_xiaomi_peridot)
 
+# Lineage
+PRODUCT_PACKAGES += \
+# Seedvault 
+
 # KProfiles
 PRODUCT_PACKAGES += \
     KProfiles
