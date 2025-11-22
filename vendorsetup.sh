@@ -3,7 +3,7 @@
 # Vendor (fresh clone)
 echo "Cloning vendor tree..."
 rm -rf vendor/xiaomi/peridot
-git clone -b lineage-23.0 https://github.com/droidcore/f6_proprietary_vendor_xiaomi_peridot.git vendor/xiaomi/peridot
+git clone -b los https://github.com/droidcore/f6_proprietary_vendor_xiaomi_peridot.git vendor/xiaomi/peridot
 
 # Kernel source (fresh clone)
 echo "Cloning kernel source tree..."
@@ -18,11 +18,7 @@ git clone -b lineage-23.0 --depth 1 https://github.com/peridot-dev/android_kerne
 # Hardware xiaomi (fresh clone)
 echo "Cloning hardware xiaomi source..."
 rm -rf hardware/xiaomi
-git clone -b lineage-23.0 https://github.com/PeridotSupremacy/hardware_xiaomi.git hardware/xiaomi
-
-# Packages Apps XiaomiDolby
-echo "Cloning XiaomiDolby tree..."
-rm -rf packages/apps/XiaomiDolby
+git clone -b lineage-23.1 https://github.com/sm8635-dev/hardware_xiaomi.git hardware/xiaomi
 
 # MiuiCamera device tree (fresh clone)
 echo "Cloning MiuiCamera device tree..."
@@ -34,30 +30,33 @@ echo "Cloning MiuiCamera vendor tree..."
 rm -rf vendor/xiaomi/peridot-miuicamera
 git clone https://github.com/F6-test/vendor-xiaomi-peridot-miuicamera.git vendor/xiaomi/peridot-miuicamera
 
-# Packages Apps Settings
-echo "Cloning Custom Apps Settings tree..."
-rm -rf packages/apps/Settings
-git clone https://github.com/droidcore/packages_apps_Settings.git packages/apps/Settings
-
-# system sepolicy 
-echo "Cloning Custom system sepolicy tree..."
-rm -rf system/sepolicy
-git clone https://github.com/droidcore/system_sepolicy.git system/sepolicy
-
 # Viper4Android 
 echo "Cloning Viper4Android tree..."
 rm -rf packages/apps/ViPER4AndroidFX
 git clone https://github.com/TogoFire/packages_apps_ViPER4AndroidFX.git packages/apps/ViPER4AndroidFX
+
+# KProfiles (fresh clone)
+echo "Cloning KProfiles..."
+rm -rf packages/apps/KProfiles
+git clone -b lineage-23.1 https://github.com/sm8635-dev/packages_apps_KProfiles.git packages/apps/KProfiles
 
 # Gamebar
 echo "Cloning Gamebar tree..."
 rm -rf packages/apps/GameBar
 git clone https://github.com/droidcore/packages_apps_GameBar.git packages/apps/GameBar
 
-# KProfiles (fresh clone)
-echo "Cloning KProfiles..."
-rm -rf packages/apps/KProfiles
-git clone -b lineage-23.0 https://github.com/sm8635-dev/packages_apps_KProfiles.git packages/apps/KProfiles
+# Compat (cherry pick)
+echo "Fetching QPR1 compat..."
+cd hardware/lineage/compat
+git fetch https://github.com/stx-staging/android_hardware_statix_compat bp3a
+git reset --hard FETCH_HEAD
+
+# Picking sepolicy for QPR1 (cherry pick)
+echo "Picking sepolicy fix..."
+cd ../../..
+cd device/qcom/sepolicy_vndr/sm8650
+git fetch https://github.com/sm8635-dev/device_qcom_sepolicy_vndr
+git cherry-pick 39cfd17977cc664fa8393b6569c39179f4127b2d 1d2c884133bb23d780fc35ecff27d2e6eeabe314 8e148a4417233704f40c223c0624d41f017b490e
 
 # Refresh signing keys
 if [ -d vendor/lineage-priv/keys ]; then
