@@ -39,6 +39,10 @@ echo "Cloning Viper4Android tree..."
 rm -rf packages/apps/ViPER4AndroidFX
 git clone https://github.com/TogoFire/packages_apps_ViPER4AndroidFX.git packages/apps/ViPER4AndroidFX
 
+# FastCharge (fresh clone)
+echo "Cloning FastCharge..."
+rm -rf packages/apps/FastCharge
+
 # KProfiles (fresh clone)
 echo "Cloning KProfiles..."
 rm -rf packages/apps/KProfiles
