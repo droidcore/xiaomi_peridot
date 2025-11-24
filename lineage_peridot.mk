@@ -14,7 +14,7 @@ $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 # Inherit from peridot device
 $(call inherit-product, device/xiaomi/peridot/device.mk)
 
-# Lunaris
+# Evolution X
 WITH_GMS := true
 TARGET_OPTIMIZED_DEXOPT := true
 TARGET_ENABLE_BLUR := true
@@ -22,6 +22,7 @@ TARGET_HAS_UDFPS := true
 TARGET_CUSTOM_UDFPS := true
 TARGET_BOOT_ANIMATION_RES := 1080
 TARGET_SUPPORTS_QUICK_TAP := true
+TARGET_DISABLE_EPPE := true
 TARGET_FACE_UNLOCK_SUPPORTED := true
 TORCH_STR_SUPPORTED := true
 
@@ -35,7 +36,9 @@ PRODUCT_MODEL := 24069PC21G
 PRODUCT_SYSTEM_NAME := peridot_global
 PRODUCT_SYSTEM_DEVICE := peridot
 
+# Fingerprint
 PRODUCT_BUILD_PROP_OVERRIDES += \
+    BuildDesc="peridot_global-user 15 AQ3A.240912.001 OS2.0.206.0.VNPMIXM release-keys" \
     BuildFingerprint=POCO/peridot_global/peridot:15/AQ3A.240912.001/OS2.0.206.0.VNPMIXM:user/release-keys \
     DeviceName=$(PRODUCT_SYSTEM_DEVICE) \
     DeviceProduct=$(PRODUCT_SYSTEM_NAME)
